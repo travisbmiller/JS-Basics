@@ -5,7 +5,12 @@ var name = 'Tyler';
 //Create a function called isTyler that accepts name as it's only argument.
 //If the argument you passed in is equal to 'Tyler', return true. If it's not, return false.
 
-  //Code Here
+  var isTyler = function(name) {
+    if (name === "Tyler") {
+      return true;
+    }
+    return false
+  }
 
 
 //Next problem
@@ -15,7 +20,10 @@ var name = 'Tyler';
 //Create a function called getName that uses prompt() to prompt the user for their name, then returns the name.
 
 
-  //Code Here
+  var getName = function () {
+    var userName = prompt("What is your name");
+    return userName;
+  }
 
 
 //Next Problem
@@ -25,9 +33,20 @@ var name = 'Tyler';
 //Create a function called welcome that uses your getName function you created in the previous problem to get the users name,
 //then alerts "Welcome, " plus whatever the users name is.
 
-  //Code Here
+  var welcome = function () {
+    var userName = getName();
+    alert("Welcome " + userName)
+  }
 
+  var welcome = function () {
+    alert("Welcome " + getName())
+  }
 
+  var welcome = function(cb) {
+    alert("Welcome " + cb())
+  }
+
+  welcome(getName)
 //Next problem
 
 
@@ -37,7 +56,17 @@ var name = 'Tyler';
 //Save the result of the return value from your adder function, then alert "The Total Number was " + the number that was
 //returned from adder.
 
-  //Code Here
+  var adder = function () {
+    var argTotal = 0;
+    for (var i = 0; i < arguments.length; i++) {
+      argTotal += arguments[i];
+    }
+    return argTotal;
+  }
+
+  var results = adder(1,2,3,4,5);
+
+  alert("The Total was " + results);
 
 
 //Next Problem
@@ -46,7 +75,8 @@ var name = 'Tyler';
 
 //What is the difference between arguments and parameters?
 
-  //Answer Here
+  argumensts and what are passed in during invoking
+  parameters are what are what are declared during definition
 
 
 //Next problem
@@ -56,7 +86,14 @@ var name = 'Tyler';
 //What are all the falsy values in JavaScript and how do you check if something is falsy?
 
 
-  //Answer Here
+  0
+  null
+  undefined
+  false
+  -1
+  NaN
+  ""
+
 
 
 
@@ -66,15 +103,17 @@ var name = 'Tyler';
 
 //Create a function called myName that returns your name
 
-  //Code Here
+  var myName = function() {
+    return "Travis"
+  }
 
 //Now save the function definition of myName into a new variable called newMyName
 
-  //Code Here
+  var newMyName = myName;
 
 //Now alert the result of invoking newMyName
 
-
+alert(newMyName());
 
 //Next problem
 
@@ -82,10 +121,16 @@ var name = 'Tyler';
 
 //Create a function called outerFn which returns an anonymous function which returns your name.
 
-  //Code Here
+  var outerFn = function () {
+    return function () {
+      return "Travis"
+    }
+  }
 
 //Now save the result of invoking outerFn into a variable called innerFn.
 
-  //Code Here
+  var innerFn = outerFn();
 
 //Now invoke innerFn.
+
+  innerFn();
